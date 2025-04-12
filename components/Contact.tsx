@@ -11,9 +11,10 @@ const Contact = () => {
   });
 
   return (
-    <div
+    <section
       id="contact"
       ref={contactRef}
+      aria-label="Contact Section"
       className="bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-24 pb-4"
     >
       {/* Header */}
@@ -30,7 +31,7 @@ const Contact = () => {
       </p>
 
       <ContactForm />
-    </div>
+    </section>
   );
 };
 
