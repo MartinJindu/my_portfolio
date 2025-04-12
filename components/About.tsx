@@ -67,11 +67,11 @@ const About = () => {
           </div>
 
           <p className="text-xl leading-relaxed">
-            Hi! I&apos;m a developer passionate about creating modern, scalable,
-            and high-performance applications. With a deep curiosity for
-            technology and a love for clean code, I specialize in creating
-            responsive, accessible, and user-focused solutions using modern
-            JavaScript frameworks and libraries like{" "}
+            Hi! I&apos;m Chijindu Okpalanweze. I&apos;m a developer passionate
+            about creating modern, scalable, and high-performance applications.
+            With a deep curiosity for technology and a love for clean code, I
+            specialize in creating responsive, accessible, and user-focused
+            solutions using modern JavaScript frameworks and libraries like{" "}
             <span className="text-amber-400">Next.js</span>,{" "}
             <span className="text-amber-400">React</span>.
             <br /> My design choices are influenced by both functionality and

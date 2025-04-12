@@ -31,7 +31,7 @@ const HeroSection = () => {
         </motion.h3>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-amber-400 leading-tight">
-          {"Chijindu I. Okpalanweze".split(" ").map((word, index) => (
+          {"Chijindu".split(" ").map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
