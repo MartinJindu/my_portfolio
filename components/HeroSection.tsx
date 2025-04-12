@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { BackgroundBeams } from "./ui/background-beams";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { File } from "lucide-react";
@@ -15,7 +14,7 @@ const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative h-screen bg-[url(/background.jpg)] bg-cover bg-center flex items-center justify-center overflow-hidden"
+      className="relative h-screen bg-[url(/background.avif)] bg-cover bg-center flex items-center justify-center overflow-hidden"
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />
@@ -145,9 +144,6 @@ const HeroSection = () => {
           />
         </div>
       </motion.div>
-
-      {/* Shooting Stars */}
-      <BackgroundBeams />
     </section>
   );
 };

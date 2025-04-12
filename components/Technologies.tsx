@@ -23,7 +23,7 @@ const Technologies = () => {
     <section
       ref={techRef}
       id="technologies"
-      className="relative bg-cover bg-center bg-[url(/tech.jpg)] h-auto w-full md:h-screen overflow-hidden pt-26"
+      className="relative bg-cover bg-center bg-[url(/tech.avif)] h-auto w-full md:h-screen overflow-hidden pt-26"
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 z-0" />
