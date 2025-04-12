@@ -17,7 +17,7 @@ const Skills = () => {
     <section
       id="skills"
       ref={skillsRef}
-      className="relative bg-cover bg-center bg-[url(/skills.jpg)] h-screen w-full flex items-center justify-center px-5 overflow-hidden"
+      className="relative bg-cover bg-center bg-[url(/skills.jpg)] h-screen w-full flex items-center justify-center px-5 pt-26 overflow-hidden"
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 z-0" />
