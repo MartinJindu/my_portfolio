@@ -30,16 +30,14 @@ const Portfolio = () => {
     <motion.section
       id="portfolio"
       ref={projectRef}
-      initial="hidden"
-      animate={projectInView ? "visible" : "hidden"}
-      variants={containerVariants}
       aria-label="Portfolio Section"
-      className="bg-cover bg-center bg-[url(/portfolio.jpg)] text-white min-h-[100dvh] px-6 py-16 pt-26 overflow-hidden"
+      className="bg-cover bg-center bg-[url(/portfolio.avif)] text-white min-h-[100dvh] px-6 py-16 pt-26 overflow-hidden"
     >
       <motion.h1
         className="text-5xl md:text-6xl font-bold text-center"
-        variants={cardVariants}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={projectInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <span className="text-blue-500">My</span>{" "}
         <span className="text-amber-500">Portfolio</span>
@@ -47,14 +45,17 @@ const Portfolio = () => {
 
       <motion.p
         className="mt-4 text-gray-300 text-center"
-        variants={cardVariants}
-        transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={projectInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
       >
         A collection of my latest projects showcasing my skills and expertise.
       </motion.p>
 
       <motion.div
         className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12"
+        initial="hidden"
+        animate={projectInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         {projects.map((project, index) => (

@@ -30,7 +30,7 @@ const About = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
-      className="relative bg-cover bg-center bg-[url(/about.jpg)] min-h-screen pt-26 overflow-x-hidden"
+      className="relative bg-cover bg-center bg-[url(/about.avif)] min-h-screen pt-26 overflow-x-hidden"
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />
