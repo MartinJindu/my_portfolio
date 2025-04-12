@@ -31,22 +31,19 @@ const HeroSection = () => {
         </motion.h3>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-amber-400 leading-tight">
-          {"Chijindu".split(" ").map((word, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-              animate={
-                heroInView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}
-              }
-              transition={{
-                duration: 0.4,
-                delay: index * 0.2,
-              }}
-              className="inline-block mr-2"
-            >
-              {word}
-            </motion.span>
-          ))}
+          <motion.span
+            initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+            animate={
+              heroInView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}
+            }
+            transition={{
+              duration: 0.4,
+              delay: 0.2,
+            }}
+            className="inline-block mr-2"
+          >
+            Chijindu
+          </motion.span>
         </h1>
 
         <motion.p
