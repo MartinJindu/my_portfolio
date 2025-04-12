@@ -43,8 +43,8 @@ const Technologies = () => {
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={techInView ? { opacity: 1, scale: 1 } : {}}
+              initial={{ opacity: 0 }}
+              animate={techInView ? { opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.2 * index }}
             >
               <BackgroundGradient className="p-1 rounded-xl">

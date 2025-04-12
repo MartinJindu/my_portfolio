@@ -42,7 +42,7 @@ function NavbarApp() {
 
   return (
     <div className="relative w-full ">
-      <Navbar className="fixed top-0 max-w-4xl mx-auto">
+      <Navbar className="fixed top-0 max-w-4xl mx-auto z-[100]">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
