@@ -33,10 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="bg-gray-900 text-white scroll-smooth scrollbar-hide "
-    >
+    <html lang="en" className="bg-gray-900 text-white scroll-smooth ">
       <body
         className={`${outfit.className} antialiased  flex flex-col mx-auto relative `}
       >
