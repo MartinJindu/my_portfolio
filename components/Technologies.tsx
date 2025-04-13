@@ -23,6 +23,7 @@ const Technologies = () => {
     <section
       ref={techRef}
       id="technologies"
+      aria-label="technologies section"
       className="relative bg-cover bg-center bg-[url(/tech.avif)] h-auto w-full md:h-screen overflow-hidden pt-26"
     >
       {/* Dark overlay */}
@@ -39,17 +40,18 @@ const Technologies = () => {
           <span className="text-amber-500">Technologies</span> I Work With
         </motion.h2>
 
-        <motion.div className="flex justify-center gap-6 flex-wrap px-4 py-8">
+        <motion.div className="relative flex justify-center gap-6 flex-wrap px-4 py-8">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
               initial={{ opacity: 0 }}
               animate={techInView ? { opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.2 * index }}
+              className="relative"
             >
               <BackgroundGradient className="p-1 rounded-xl">
                 <motion.div
-                  className="p-4 bg-gray-800 rounded-xl shadow-md flex flex-col items-center"
+                  className="relative p-4 bg-gray-800 rounded-xl shadow-md flex flex-col items-center"
                   whileHover={{ scale: 1.1 }}
                 >
                   {tech.icon}

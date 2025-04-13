@@ -31,7 +31,7 @@ const Portfolio = () => {
       id="portfolio"
       ref={projectRef}
       aria-label="Portfolio Section"
-      className="bg-cover bg-center bg-[url(/portfolio.avif)] text-white min-h-[100dvh] px-6 py-16 pt-26 overflow-hidden"
+      className="relative bg-cover bg-center bg-[url(/portfolio.avif)] text-white min-h-[100dvh] px-6 py-16 pt-26 overflow-hidden"
     >
       <motion.h1
         className="text-5xl md:text-6xl font-bold text-center"

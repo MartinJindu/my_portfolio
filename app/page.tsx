@@ -9,7 +9,7 @@ const Contact = dynamic(() => import("@/components/Contact"));
 
 const Home = () => {
   return (
-    <div className="flex flex-col scroll-smooth gap-[1px]">
+    <div className="relative flex flex-col scroll-smooth gap-[1px]">
       <HeroSection />
       <About />
       <Technologies />
