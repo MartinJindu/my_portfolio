@@ -17,6 +17,7 @@ const Skills = () => {
     <section
       id="skills"
       ref={skillsRef}
+      aria-label="skills section"
       className="relative bg-cover bg-center bg-[url(/skills.avif)] min-h-screen w-full flex items-center justify-center px-5 pt-26 overflow-hidden"
     >
       {/* Dark overlay */}

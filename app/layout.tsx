@@ -12,7 +12,19 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Chijindu Okpalanweze",
-  description: "Chijindu Okpanalweze Portfolio",
+  description: "Chijindu Portfolio",
+  authors: [{ name: "Chijindu Okpalanwze" }],
+  creator: "Chijindu Okpalanweze",
+  keywords: [
+    "Portfolio",
+    "Chijindu",
+    "Web developer",
+    "front-end developer",
+    "React",
+    "Next.js",
+  ],
+  publisher: "Chijindu",
+  applicationName: "Chijindu Portfolio",
 };
 
 export default function RootLayout({
@@ -26,7 +38,7 @@ export default function RootLayout({
       className="bg-gray-900 text-white scroll-smooth scrollbar-hide "
     >
       <body
-        className={`${outfit.className} antialiased  flex flex-col mx-auto `}
+        className={`${outfit.className} antialiased  flex flex-col mx-auto relative `}
       >
         <nav>
           <NavbarApp />
