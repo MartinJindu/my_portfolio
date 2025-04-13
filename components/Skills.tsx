@@ -28,8 +28,8 @@ const Skills = () => {
         {/* Left side */}
         <motion.div
           className="flex flex-col md:w-1/3 text-white items-center sm:items-start text-center md:text-left"
-          initial={{ opacity: 0, x: -50 }}
-          animate={skillsInView ? { opacity: 1, x: 0 } : {}}
+          initial={{ opacity: 0, y: -50 }}
+          animate={skillsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-4">

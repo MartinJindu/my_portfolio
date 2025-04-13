@@ -14,10 +14,10 @@ const containerVariants = {
 };
 
 const textVariants = {
-  hidden: { opacity: 0, x: 70 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: { duration: 0.8, delay: 0.4, ease: "easeInOut" },
   },
 };
@@ -30,7 +30,7 @@ const About = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
-      className="relative bg-cover bg-center bg-[url(/about.avif)] min-h-screen pt-26 overflow-x-hidden"
+      className="relative bg-cover bg-center bg-[url(/about.avif)] min-h-screen pt-26 overflow-y-hidden"
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />

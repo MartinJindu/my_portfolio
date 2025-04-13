@@ -14,8 +14,8 @@ const SkillsProgress = ({ skill, skillsInView, index }: SkillProps) => {
   return (
     <motion.div
       className="flex flex-col gap-2"
-      initial={{ opacity: 0, x: 50 }}
-      animate={skillsInView ? { opacity: 1, x: 0 } : {}}
+      initial={{ opacity: 0, y: 50 }}
+      animate={skillsInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.5 }}
     >
       <div className="flex justify-between items-center">
