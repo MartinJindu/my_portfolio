@@ -70,7 +70,7 @@ const HeroSection = () => {
           </a>
 
           <a
-            href="/Okpalanweze Chijindu Resume1.pdf"
+            href="/Chijindu okpalanweze Resume1.pdf"
             download="Chijindu_Okpalanweze.pdf"
           >
             <button className="flex gap-2 w-52 rounded-full border border-blue-400 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 transition duration-300 shadow-md cursor-pointer">
