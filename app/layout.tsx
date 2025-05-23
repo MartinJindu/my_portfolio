@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarApp from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
+import ReactLenis from "lenis/react";
 
 const outfit = Outfit({
   weight: ["200", "500"],
@@ -33,20 +34,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-gray-900 text-white scroll-smooth ">
+    <html lang="en" className="bg-gray-900 text-white">
       <body
         className={`${outfit.className} antialiased  flex flex-col mx-auto relative `}
       >
-        <nav>
-          <NavbarApp />
-        </nav>
+        <ReactLenis root>
+          <nav>
+            <NavbarApp />
+          </nav>
 
-        <main className="min-h-screen w-full   ">
-          {children}
-          <Toaster position="top-center" richColors />
-        </main>
+          <main className="min-h-screen w-full   ">
+            {children}
+            <Toaster position="top-center" richColors />
+          </main>
 
-        <Footer />
+          <Footer />
+        </ReactLenis>
       </body>
     </html>
   );
