@@ -1,96 +1,92 @@
+import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
-import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import { FaGithub } from "react-icons/fa";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { Button } from "./ui/button";
+import { Project } from "@/lib/types";
+import { Badge } from "./ui/badge";
 
-type ProjectCardProps = {
-  project: {
-    name: string;
-    description: string;
-    img: StaticImageData;
-    link: string;
-    github: string;
-    techStack?: string[];
-  };
+type ProjectProp = {
+  project: Project;
 };
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+function ProjectCard({ project }: ProjectProp) {
   return (
-    <CardContainer className="w-full" containerClassName="py-5">
-      <CardBody className="bg-gray-900 relative group/card border-black/[0.1] w-auto h-auto rounded-sm p-3 border">
-        <CardItem
-          as={"h1"}
-          translateZ="50"
-          className="text-2xl font-bold text-amber-300  mb-5"
-        >
-          {project.name}
-        </CardItem>
-
-        <CardItem translateZ="100" className="w-full mt-4">
+    <Card className="bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800 overflow-hidden group hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 shadow-sm hover:shadow-lg">
+      <div className="relative overflow-hidden">
+        <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
           <Image
-            src={project.img}
-            height="1000"
-            width="1000"
-            className="w-full object-cover rounded-sm group-hover/card:shadow-xl"
-            alt={project.name}
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            width={500}
+            height={300}
+            className="w-full h-full object-cover"
           />
-        </CardItem>
-
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-gray-100 text-xl max-w-sm mt-2 font-semibold"
-        >
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      <CardHeader>
+        <CardTitle className="text-gray-900 dark:text-white">
+          {project.title}
+        </CardTitle>
+        <CardDescription className="text-gray-600 dark:text-gray-300">
           {project.description}
-        </CardItem>
-
-        {project.techStack && (
-          <CardItem
-            as={"h5"}
-            translateZ={50}
-            className="mt-5 font-semibold text-amber-300"
-          >
-            Tech stack:
-          </CardItem>
-        )}
-
-        <div className="flex flex-wrap gap-3 mt-2">
-          {project.techStack &&
-            project.techStack.map((stack) => (
-              <CardItem
-                key={stack}
-                as={"div"}
-                translateZ={60}
-                className="h-auto w-auto py-2 px-2 text-[10px] bg-blue-800  rounded-lg"
-              >
-                {stack}
-              </CardItem>
-            ))}
-        </div>
-
-        <div className="flex justify-between items-center mt-10">
-          <CardItem
-            translateZ={20}
-            as={Link}
-            href={project.link}
-            target="_blank"
-            className="flex gap-2 items-center px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-          >
-            Live demo <FaExternalLinkAlt />
-          </CardItem>
-          <Link aria-label="github repo" href={project.github} target="_blank">
-            <CardItem
-              translateZ={20}
-              as="button"
-              className="px-4 py-2 rounded-xl bg-black text-white text-xs font-bold cursor-pointer"
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.map((tech: string, techIndex: number) => (
+            <motion.div
+              key={techIndex}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FaGithub />
-            </CardItem>
-          </Link>
+              <Badge
+                variant="secondary"
+                className="bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-600/30 dark:border-blue-400/30"
+              >
+                {tech}
+              </Badge>
+            </motion.div>
+          ))}
         </div>
-      </CardBody>
-    </CardContainer>
+        <div className="flex gap-4">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href={project.github} target="_blank" aria-label="github">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-gray-500 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+              >
+                <Github className="h-4 w-4 mr-2" />
+                Code
+              </Button>
+            </Link>
+          </motion.div>
+
+          {project.live && (
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href={project.live} target="_blank" aria-label="live demo">
+                <Button
+                  size="sm"
+                  className="bg-blue-600 hover:bg-blue-700 text-gray-100 cursor-pointer"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Live Demo
+                </Button>
+              </Link>
+            </motion.div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
-};
+}
 export default ProjectCard;

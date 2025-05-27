@@ -1,20 +1,44 @@
-"use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
+import { Send } from "lucide-react";
+import InputField from "./InputField";
 
-const className =
-  "bg-white text-black rounded-sm border-2 border-amber-400 px-2 py-1 focus:ring-2 focus:outline-none focus:ring-amber-500";
-
-const ContactForm = () => {
+function ContactForm() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
+  const inputFieldsData = [
+    { name: "Name", placeholder: "John Doe", value: name, setValue: setName },
+    {
+      name: "Email",
+      type: "email",
+      placeholder: "john@mail.com",
+      value: email,
+      setValue: setEmail,
+    },
+    {
+      name: "Subject",
+      placeholder: "Project Inquiry",
+      value: subject,
+      setValue: setSubject,
+    },
+  ];
+  const noInputFlag = !name || !email || !subject || !message;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (noInputFlag) {
+      toast.error("Please fill all fields");
+      return;
+    }
     setIsSubmitting(true);
 
     const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
@@ -42,79 +66,62 @@ const ContactForm = () => {
     } catch (error) {
       setIsSubmitting(false);
       console.error("Failed to send message:", error);
-      alert("An error occurred while sending your message.");
+      toast.error("An error occurred while sending your message.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const noInputDisableButton = !name || !email || !subject || !message;
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col mt-3 items-center space-y-4 w-full max-w-md"
-    >
-      <div className="flex flex-col w-full">
-        <label htmlFor="name">Name</label>
-        <input
-          aria-label="name"
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className={className}
-        />
+    <form onSubmit={handleSubmit}>
+      <div className="space-y-4">
+        {/* Name, Email, Subject */}
+        {inputFieldsData.map((field) => (
+          <InputField
+            key={field.name}
+            name={field.name}
+            placeholder={field.placeholder}
+            type={field.type || "text"}
+            value={field.value}
+            setValue={field.setValue}
+          />
+        ))}
+
+        {/* MESSAGE */}
+        <div>
+          <label
+            className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block"
+            htmlFor="message"
+          >
+            Message*
+          </label>
+          <Textarea
+            className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white min-h-[120px] placeholder:text-gray-400 dark:placeholder:text-gray-600"
+            placeholder="Tell me about your project..."
+            name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
+
+        {/* BUTTON */}
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button
+            className={`w-full  ${
+              noInputFlag || isSubmitting
+                ? "bg-gray-500/80 hover:bg-gray-500/80 cursor-not-allowed"
+                : "bg-blue-500 hover:bg-blue-700 cursor-pointer"
+            } `}
+            disabled={noInputFlag && isSubmitting}
+            type="submit"
+            title={isSubmitting ? "Submitting" : "Please fill form fields"}
+          >
+            <Send className="h-4 w-4 mr-2" />
+            {isSubmitting ? "Submitting..." : "Send Message"}
+          </Button>
+        </motion.div>
       </div>
-      <div className="flex flex-col w-full">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          aria-label="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className={className}
-        />
-      </div>
-      <div className="flex flex-col w-full">
-        <label htmlFor="subject">Subject</label>
-        <input
-          aria-label="subject"
-          type="text"
-          name="subject"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          required
-          className={className}
-        />
-      </div>
-      <div className="flex flex-col w-full">
-        <label htmlFor="message">Message</label>
-        <textarea
-          rows={5}
-          aria-label="message"
-          name="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          className={className}
-        />
-      </div>
-      <button
-        type="submit"
-        className={`px-6 py-3  rounded-lg font-semibold text-lg  focus:ring-2 focus:outline-none focus:ring-blue-500 transition ${
-          noInputDisableButton || isSubmitting
-            ? "bg-amber-500/50 cursor-not-allowed"
-            : "bg-amber-500 hover:bg-amber-600 cursor-pointer"
-        }`}
-        disabled={noInputDisableButton && isSubmitting}
-      >
-        {isSubmitting ? "Sending..." : "Submit"}
-      </button>
     </form>
   );
-};
+}
 export default ContactForm;
