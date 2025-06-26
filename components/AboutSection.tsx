@@ -110,9 +110,9 @@ export default function AboutSection() {
               className="grid grid-cols-2 gap-6 pt-6"
             >
               {[
-                { label: "Experience", value: "1+ Years" },
+                { label: "Experience", value: "2+ Years" },
                 { label: "Projects", value: "20+ Completed" },
-                // { label: "Clients", value: "10+ Happy" },
+                { label: "Clients", value: "10+ Happy" },
                 // { label: "Coffee", value: "Unlimited", icon: Coffee },
               ].map((stat, index) => (
                 <motion.div

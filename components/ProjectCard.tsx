@@ -19,7 +19,7 @@ type ProjectProp = {
 
 function ProjectCard({ project }: ProjectProp) {
   return (
-    <Card className="bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-800 overflow-hidden group hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 shadow-sm hover:shadow-lg">
+    <Card className="bg-gray-200 border-blue-500 dark:bg-gray-900  dark:border-gray-800 overflow-hidden group hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 shadow-sm hover:shadow-lg">
       <div className="relative overflow-hidden">
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
           <Image

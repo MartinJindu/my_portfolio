@@ -6,6 +6,7 @@ import { Mail, ChevronDown } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ParticlesBackground from "./Particle-Background";
+import { ContainerTextFlip } from "./ui/container-text-flip";
 
 interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void;
@@ -60,14 +61,22 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
             Hi, I'm Chijindu
           </motion.h1>
 
-          <motion.p
+          <motion.div
             variants={itemVariants}
             className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
           >
-            Writing maintainable code and crafting intuitive UIs is my thing. As
-            a Full-Stack Developer, I focus on turning complex ideas into
-            simple, reliable products.
-          </motion.p>
+            <p className="inline-block">
+              Writing maintainable code and crafting intuitive UIs is my thing.
+              As a{" "}
+              <ContainerTextFlip
+                textClassName="text-xl sm:text-2xl"
+                className="font-normal"
+                words={["Frontend", "Full-Stack"]}
+              />{" "}
+              Developer, I focus on turning complex ideas into simple, reliable
+              products.
+            </p>
+          </motion.div>
 
           {/* BUTTONS */}
           <motion.div

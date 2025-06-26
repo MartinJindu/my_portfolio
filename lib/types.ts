@@ -31,11 +31,11 @@ export interface NavItem {
 export interface ExperienceItem {
   type: "work" | "education";
   title: string;
-  company: string;
+  company?: string;
   location: string;
   period: string;
-  description: string;
-  achievements: string[];
-  technologies: string[];
+  description?: string;
+  achievements?: string[];
+  technologies?: string[];
   icon: LucideIcon;
 }
