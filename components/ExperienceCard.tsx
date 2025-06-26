@@ -120,6 +120,7 @@ export default ExperienceCard;
 
 //-----------------------------------------------------------------------------------------------------------------
 
+// Experience achievement
 type ExperienceAchievementProp = {
   achievements: string[];
 };
@@ -151,6 +152,7 @@ const ExperienceAchievement = ({ achievements }: ExperienceAchievementProp) => {
   );
 };
 
+// Experience Technology
 type ExperienceTechProp = {
   technologies: string[];
 };

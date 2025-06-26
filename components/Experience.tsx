@@ -131,6 +131,7 @@ export default function ExperienceSection() {
 
 //---------------------------------------------------------------------------------------------
 
+// Summary Stat
 const SummaryStats = () => {
   return (
     <motion.div
