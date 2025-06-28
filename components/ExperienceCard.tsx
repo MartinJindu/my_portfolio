@@ -108,7 +108,10 @@ const ExperienceCard = ({
 
             {/* Technologies */}
             {item.technologies && (
-              <ExperienceTech technologies={item.technologies} />
+              <ExperienceTech
+                technologies={item.technologies}
+                type={item.type}
+              />
             )}
           </CardContent>
         </Card>
@@ -155,8 +158,9 @@ const ExperienceAchievement = ({ achievements }: ExperienceAchievementProp) => {
 // Experience Technology
 type ExperienceTechProp = {
   technologies: string[];
+  type: "work" | "education";
 };
-const ExperienceTech = ({ technologies }: ExperienceTechProp) => {
+const ExperienceTech = ({ technologies, type }: ExperienceTechProp) => {
   return (
     <div>
       <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
@@ -174,7 +178,11 @@ const ExperienceTech = ({ technologies }: ExperienceTechProp) => {
           >
             <Badge
               variant="outline"
-              className="text-xs bg-blue-600/20 text-blue-600 dark:text-blue-400 border-blue-600/30 dark:border-blue-400/30"
+              className={`text-xs ${
+                type === "work"
+                  ? "bg-blue-600/20 text-blue-600 dark:text-blue-600 border-blue-600/30 dark:border-blue-400/30"
+                  : "bg-purple-600/20 text-purple-600 dark:text-purple-600 border-purple-600/30 dark:border-purple-400/30"
+              }    `}
             >
               {tech}
             </Badge>
