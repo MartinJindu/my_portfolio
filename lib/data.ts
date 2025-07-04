@@ -3,6 +3,7 @@ import chatAppPic from "@/assets/chatterly.png";
 import adminPic from "@/assets/admin.png";
 import bookWorm from "@/assets/bookworm.png";
 import quickCart from "@/assets/quickCart2.png";
+import whitespace from "@/assets/whitespace.png";
 import { Building2, GraduationCap } from "lucide-react";
 import { ExperienceItem } from "./types";
 
@@ -49,6 +50,23 @@ export const projects = [
     ],
     github: "https://github.com/MartinJindu/chatterly",
     live: "https://chatterly-chat-app.vercel.app/",
+  },
+  {
+    title: "Whitespace SaaS Landing Page",
+    description:
+      "Whitespace SaaS Landing Page is a responsive landing page I built using a design in Figma. This project showcases my ability to translate Figma designs into clean, pixel-perfect HTML using React, TypeScript, and Vite.",
+    image: whitespace,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Figma",
+      "Figma - to - HTML",
+      "Swiper.js",
+    ],
+    github: "https://github.com/MartinJindu/whitespace-saas-landing",
+    live: "https://whitespace-saas-landing.netlify.app/",
   },
   {
     title: "BookWorm",
